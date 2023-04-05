@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="testRunner" value="GRADLE" />
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="Android Studio java home" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/data/artist" />
+            <option value="$PROJECT_DIR$/data/core" />
+            <option value="$PROJECT_DIR$/data/search" />
+            <option value="$PROJECT_DIR$/domain/artist" />
+            <option value="$PROJECT_DIR$/domain/search" />
+            <option value="$PROJECT_DIR$/feature/artist" />
+            <option value="$PROJECT_DIR$/feature/core" />
+            <option value="$PROJECT_DIR$/feature/search" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,66 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'androidx.navigation.safeargs'
+}
+
+apply from: "../../dependencies.gradle"
+
+android {
+    namespace 'uk.co.sw.virtuoso.feature.artist'
+    compileSdk 33
+
+    defaultConfig {
+        minSdk 24
+        targetSdk 33
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation project(":feature_core")
+    implementation project(":domain_artist")
+
+    implementation kotlin
+
+    implementation coreKtx
+    implementation appCompat
+    implementation material
+    implementation constraintLayout
+
+    implementation fragment
+    implementation navigation.values()
+
+    implementation hilt
+    kapt hiltCompiler
+
+    testImplementation unitTest.values()
+    testImplementation(coroutineTest) {
+        exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib'
+        exclude group: 'org.jetbrains.kotlin', module: 'kotlinx-coroutines-core'
+    }
+    testImplementation turbine
+}

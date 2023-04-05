@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel target="1.8">
+      <module name="Virtuoso.artist" target="11" />
+      <module name="Virtuoso.core" target="11" />
+      <module name="Virtuoso.mylibrary" target="11" />
+      <module name="Virtuoso.search" target="11" />
+      <module name="Virtuoso.testutils" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

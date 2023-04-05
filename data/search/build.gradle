@@ -1,0 +1,55 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+apply from: "../../dependencies.gradle"
+
+android {
+    namespace 'uk.co.sw.virtuoso.data.search'
+    compileSdk 33
+
+    defaultConfig {
+        minSdk 24
+        targetSdk 33
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation project(":domain_search")
+    implementation project(":data_core")
+
+    implementation kotlin
+    implementation coreKtx
+
+    implementation retrofit.values()
+    implementation platform(okHttp3BoM)
+    implementation okHttp3
+
+    implementation hilt
+    kapt hiltCompiler
+
+    testImplementation unitTest.values()
+    testImplementation coroutineTest
+    testImplementation turbine
+}

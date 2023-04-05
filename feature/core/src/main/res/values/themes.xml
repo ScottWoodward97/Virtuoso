@@ -1,0 +1,19 @@
+<resources>
+
+    <style name="Theme.Virtuoso" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+
+        <item name="colorPrimary">@color/virtuosoPrimary</item>
+        <item name="colorOnPrimary">@color/virtuosoOnPrimary</item>
+
+        <item name="colorSecondary">@color/virtuosoSecondary</item>
+        <item name="colorOnSecondary">@color/virtuosoOnSecondary</item>
+
+        <item name="android:colorBackground">@color/virtuosoBackground</item>
+        <item name="colorOnBackground">@color/virtuosoOnBackground</item>
+        <item name="colorSurface">@color/virtuosoSurface</item>
+        <item name="colorOnSurface">@color/virtuosoOnSurface</item>
+
+        <item name="android:statusBarColor">@color/black</item>
+
+    </style>
+</resources>

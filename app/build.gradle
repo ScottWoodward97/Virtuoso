@@ -1,0 +1,72 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'androidx.navigation.safeargs.kotlin'
+}
+
+apply from: "../dependencies.gradle"
+
+android {
+    namespace 'uk.co.sw.virtuoso'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "uk.co.sw.virtuoso"
+        minSdk 24
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation project(":feature_core")
+    implementation project(":feature_artist")
+    implementation project(":feature_search")
+
+    implementation project(":domain_artist")
+    implementation project(":domain_search")
+
+    implementation project(":data_core")
+    implementation project(":data_artist")
+    implementation project(":data_search")
+
+    implementation kotlin
+
+    implementation coreKtx
+    implementation appCompat
+    implementation material
+    implementation constraintLayout
+
+    implementation fragment
+    implementation navigation.values()
+
+    implementation hilt
+    kapt hiltCompiler
+
+    testImplementation unitTest.values()
+    testImplementation coroutineTest
+}

@@ -1,0 +1,69 @@
+ext {
+    def kotlinVersion = '1.7.20'
+    def coreVersion = '1.9.0'
+    def appCompatVersion = '1.6.1'
+    def materialVersion = '1.8.0'
+    def constraintLayoutVersion = '2.1.4'
+    def coroutineVersion = '1.6.4'
+    def navigationVersion = '2.3.5'
+    def recyclerViewVersion = '1.2.1'
+    def fragmentVersion = '1.5.5'
+    def lifecycleVersion = '2.5.1'
+
+    def retrofitVersion = '2.9.0'
+    def moshiVersion = '1.14.0'
+    def hiltVersion = '2.44'
+    def okHttpBomVersion = '4.9.3'
+
+    def jUnitVersion = '4.13.2'
+    def mockitoVersion = '3.9.0'
+    def mockitoKotlinVersion = '3.2.0'
+    def assertJVersion = '3.11.1'
+    def turbineVersion = '0.5.2'
+    def archCoreTestingVersion = '2.1.0'
+
+    kotlin = "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    coreKtx = "androidx.core:core-ktx:$coreVersion"
+    appCompat = "androidx.appcompat:appcompat:$appCompatVersion"
+    material = "com.google.android.material:material:$materialVersion"
+    constraintLayout = "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+    recyclerView = "androidx.recyclerview:recyclerview:$recyclerViewVersion"
+    fragment = "androidx.fragment:fragment-ktx:$fragmentVersion"
+
+    hilt = "com.google.dagger:hilt-android:$hiltVersion"
+    hiltCompiler = "com.google.dagger:hilt-compiler:$hiltVersion"
+
+    coroutineCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion"
+    coroutineExtensions = [
+            android: "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutineVersion",
+    ]
+
+    navigation = [
+            fragment: "androidx.navigation:navigation-fragment-ktx:$navigationVersion",
+            ui      : "androidx.navigation:navigation-ui-ktx:$navigationVersion",
+    ]
+
+    lifecycleExtensions = [
+            viewModel: "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion",
+            runtime  : "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion",
+    ]
+
+    retrofit = [
+            retrofit     : "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            retrofitMoshi: "com.squareup.retrofit2:converter-moshi:$retrofitVersion"
+    ]
+    moshi = "com.squareup.moshi:moshi:$moshiVersion"
+    okHttp3BoM = "com.squareup.okhttp3:okhttp-bom:$okHttpBomVersion"
+    okHttp3 = "com.squareup.okhttp3:okhttp"
+
+    unitTest = [
+            jUnit        : "junit:junit:$jUnitVersion",
+            mockito      : "org.mockito:mockito-core:$mockitoVersion",
+            mockitoKotlin: "org.mockito.kotlin:mockito-kotlin:$mockitoKotlinVersion",
+            assertJ      : "org.assertj:assertj-core:$assertJVersion",
+            archCore     : "androidx.arch.core:core-testing:$archCoreTestingVersion",
+    ]
+    coroutineTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutineVersion"
+    turbine = "app.cash.turbine:turbine:$turbineVersion"
+
+}

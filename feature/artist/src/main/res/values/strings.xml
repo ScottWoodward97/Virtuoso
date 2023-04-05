@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="artist_details_unknown_start">Unknown</string>
+    <string name="artist_details_unknown_end">Present</string>
+    <string name="artist_details_duration_fmt">%s - %s</string>
+
+    <string name="artist_details_releases_header">Releases</string>
+</resources>

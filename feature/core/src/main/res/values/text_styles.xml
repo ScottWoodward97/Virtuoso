@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="VirtuosoFont.Caption" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="fontFamily">@font/dosis_semi_bold</item>
+    </style>
+
+    <style name="VirtuosoFont.Body1" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="fontFamily">@font/dosis_semi_bold</item>
+    </style>
+
+    <style name="VirtuosoFont.Body2" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="fontFamily">@font/dosis_semi_bold</item>
+    </style>
+
+    <style name="VirtuosoFont.Headline" parent="TextAppearance.MaterialComponents.Headline3">
+        <item name="fontFamily">@font/dosis_bold</item>
+    </style>
+
+    <style name="VirtuosoFont.SubHeadline" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="fontFamily">@font/dosis_bold</item>
+    </style>
+
+
+</resources>

@@ -1,0 +1,20 @@
+plugins {
+    id 'kotlin'
+    id 'org.jetbrains.kotlin.jvm'
+}
+
+apply from: "../../dependencies.gradle"
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+dependencies {
+    implementation kotlin
+    implementation coroutineCore
+    implementation "javax.inject:javax.inject:1"
+
+    testImplementation unitTest.values()
+    testImplementation coroutineTest
+}

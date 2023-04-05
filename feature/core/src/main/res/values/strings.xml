@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Virtuoso</string>
+
+    <!-- Error message-->
+    <string name="retry_button_cta">Retry</string>
+    <string name="generic_error_message">There was an error</string>
+</resources>

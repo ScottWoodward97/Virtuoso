@@ -1,0 +1,38 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "Virtuoso"
+include ':app'
+
+setUpModule("feature", "core")
+setUpModule("feature", "artist")
+setUpModule("feature", "search")
+
+setUpModule("domain", "artist")
+setUpModule("domain", "search")
+
+setUpModule("data", "core")
+setUpModule("data", "artist")
+setUpModule("data", "search")
+
+
+def setUpModule(type, name) {
+    String moduleDirectory = "$type/$name"
+    File file = new File(settingsDir, moduleDirectory)
+    assert file.isDirectory()
+
+    String moduleName = "${type}_${name}"
+    include(moduleName)
+    project(":$moduleName").projectDir = file
+}

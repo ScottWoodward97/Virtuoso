@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="virtuosoPrimary">@color/black</color>
+    <color name="virtuosoOnPrimary">@color/white</color>
+    <color name="virtuosoSecondary">@color/orange_600</color>
+    <color name="virtuosoOnSecondary">@color/black</color>
+
+    <color name="virtuosoBackground">@color/grey_200</color>
+    <color name="virtuosoOnBackground">@color/black</color>
+
+    <color name="virtuosoSurface">@color/white</color>
+    <color name="virtuosoOnSurface">@color/black</color>
+
+</resources>
