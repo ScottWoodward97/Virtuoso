@@ -11,6 +11,7 @@ ext {
     def lifecycleVersion = '2.5.1'
 
     def composeBOMVersion = '2023.05.01'
+    def accompanistSystemUIVersion = '0.30.1'
 
     def retrofitVersion = '2.9.0'
     def moshiVersion = '1.14.0'
@@ -45,7 +46,8 @@ ext {
     compose = [
             compose: "androidx.compose.ui:ui",
             composePreview: "androidx.compose.ui:ui-tooling-preview",
-            composeMaterial: "androidx.compose.material3:material3"
+            composeMaterial: "androidx.compose.material3:material3",
+            accompanistSystemUI: "com.google.accompanist:accompanist-systemuicontroller:$accompanistSystemUIVersion"
     ]
     composeDebug = [
             composeTooling: "androidx.compose.ui:ui-tooling",
