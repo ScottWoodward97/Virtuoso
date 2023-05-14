@@ -22,6 +22,11 @@ android {
 
     buildFeatures {
         viewBinding true
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = '1.4.7'
     }
 
     buildTypes {
@@ -53,6 +58,11 @@ dependencies {
 
     implementation fragment
     implementation navigation.values()
+
+    implementation platform(composeBOM)
+    implementation compose.values()
+
+    debugImplementation composeDebug.values()
 
     implementation hilt
     kapt hiltCompiler
