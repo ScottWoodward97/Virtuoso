@@ -1,5 +1,5 @@
 ext {
-    def kotlinVersion = '1.7.20'
+    def kotlinVersion = '1.8.21'
     def coreVersion = '1.9.0'
     def appCompatVersion = '1.6.1'
     def materialVersion = '1.8.0'
@@ -9,6 +9,9 @@ ext {
     def recyclerViewVersion = '1.2.1'
     def fragmentVersion = '1.5.5'
     def lifecycleVersion = '2.5.1'
+
+    def composeBOMVersion = '2023.05.01'
+    def accompanistSystemUIVersion = '0.30.1'
 
     def retrofitVersion = '2.9.0'
     def moshiVersion = '1.14.0'
@@ -36,6 +39,19 @@ ext {
     coroutineCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion"
     coroutineExtensions = [
             android: "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutineVersion",
+    ]
+
+    composeBOM = "androidx.compose:compose-bom:$composeBOMVersion"
+
+    compose = [
+            compose: "androidx.compose.ui:ui",
+            composePreview: "androidx.compose.ui:ui-tooling-preview",
+            composeMaterial: "androidx.compose.material3:material3",
+            accompanistSystemUI: "com.google.accompanist:accompanist-systemuicontroller:$accompanistSystemUIVersion"
+    ]
+    composeDebug = [
+            composeTooling: "androidx.compose.ui:ui-tooling",
+            composeTestManifest: "androidx.compose.ui:ui-test-manifest"
     ]
 
     navigation = [

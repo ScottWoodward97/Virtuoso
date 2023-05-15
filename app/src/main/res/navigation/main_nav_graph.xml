@@ -15,8 +15,7 @@
     <fragment
         android:id="@+id/artistDetailsFragment"
         android:name="uk.co.sw.virtuoso.feature.artist.ArtistDetailsFragment"
-        android:label="ArtistDetailsFragment"
-        tools:layout="@layout/fragment_artist_details">
+        android:label="ArtistDetailsFragment">
         <argument
             android:name="artistId"
             app:argType="string" />
