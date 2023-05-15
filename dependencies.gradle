@@ -51,6 +51,7 @@ ext {
     ]
     composeDebug = [
             composeTooling: "androidx.compose.ui:ui-tooling",
+            composeTestManifest: "androidx.compose.ui:ui-test-manifest"
     ]
 
     navigation = [
