@@ -1,4 +1,4 @@
-package uk.co.sw.virtuoso.feature.search.results
+package uk.co.sw.virtuoso.feature.search.results.viewstate
 
 sealed class SearchResultsViewState {
 

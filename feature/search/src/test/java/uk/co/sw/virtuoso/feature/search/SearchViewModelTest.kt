@@ -16,8 +16,8 @@ import org.mockito.kotlin.*
 import uk.co.sw.virtuoso.domain.search.GetSearchResultsFlowUseCase
 import uk.co.sw.virtuoso.domain.search.SearchArtistUseCase
 import uk.co.sw.virtuoso.domain.search.model.SearchResultModel
-import uk.co.sw.virtuoso.feature.search.results.SearchResultsViewState
-import uk.co.sw.virtuoso.feature.search.results.SearchResultsViewStateMapper
+import uk.co.sw.virtuoso.feature.search.results.viewstate.SearchResultsViewState
+import uk.co.sw.virtuoso.feature.search.results.viewstate.SearchResultsViewStateMapper
 import kotlin.time.ExperimentalTime
 
 @OptIn(ExperimentalCoroutinesApi::class, ExperimentalTime::class)
@@ -67,6 +67,7 @@ class SearchViewModelTest {
             // When
             viewModel.searchArtist(artistName)
 
+            assertThat(expectItem()).isEqualTo(SearchResultsViewState.NoResults)
             assertThat(expectItem()).isEqualTo(SearchResultsViewState.Loading)
             expectNoEvents()
             advanceUntilIdle()
@@ -89,6 +90,7 @@ class SearchViewModelTest {
                 advanceTimeBy(300)
                 viewModel.searchArtist(artistName)
 
+                assertThat(expectItem()).isEqualTo(SearchResultsViewState.NoResults)
                 assertThat(expectItem()).isEqualTo(SearchResultsViewState.Loading)
                 expectNoEvents()
                 advanceUntilIdle()
@@ -111,6 +113,7 @@ class SearchViewModelTest {
                 advanceTimeBy(301)
                 viewModel.searchArtist(artistName)
 
+                assertThat(expectItem()).isEqualTo(SearchResultsViewState.NoResults)
                 assertThat(expectItem()).isEqualTo(SearchResultsViewState.Loading)
                 expectNoEvents()
                 advanceUntilIdle()
@@ -130,7 +133,7 @@ class SearchViewModelTest {
             .thenReturn(mockViewState)
 
         viewModel.searchResultsViewState.test {
-            assertThat(expectItem()).isEqualTo(SearchResultsViewState.Loading)
+            assertThat(expectItem()).isEqualTo(SearchResultsViewState.NoResults)
             advanceUntilIdle()
 
             // When

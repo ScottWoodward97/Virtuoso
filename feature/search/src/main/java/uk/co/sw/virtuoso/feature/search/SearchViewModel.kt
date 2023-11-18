@@ -11,8 +11,8 @@ import kotlinx.coroutines.launch
 import uk.co.sw.virtuoso.domain.search.GetSearchResultsFlowUseCase
 import uk.co.sw.virtuoso.domain.search.SearchArtistUseCase
 import uk.co.sw.virtuoso.feature.core.CoroutineDispatchers
-import uk.co.sw.virtuoso.feature.search.results.SearchResultsViewState
-import uk.co.sw.virtuoso.feature.search.results.SearchResultsViewStateMapper
+import uk.co.sw.virtuoso.feature.search.results.viewstate.SearchResultsViewState
+import uk.co.sw.virtuoso.feature.search.results.viewstate.SearchResultsViewStateMapper
 import javax.inject.Inject
 
 @HiltViewModel
