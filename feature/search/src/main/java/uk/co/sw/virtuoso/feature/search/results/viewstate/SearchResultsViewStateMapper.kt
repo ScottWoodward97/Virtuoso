@@ -1,4 +1,4 @@
-package uk.co.sw.virtuoso.feature.search.results
+package uk.co.sw.virtuoso.feature.search.results.viewstate
 
 import uk.co.sw.virtuoso.domain.search.model.SearchResultModel
 import javax.inject.Inject

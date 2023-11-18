@@ -7,7 +7,6 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -15,6 +14,7 @@ import androidx.compose.ui.unit.dp
 import uk.co.sw.virtuoso.feature.artist.ArtistDetailsViewModel
 import uk.co.sw.virtuoso.feature.artist.viewstate.ArtistDetailsViewData
 import uk.co.sw.virtuoso.feature.artist.viewstate.ArtistDetailsViewState
+import uk.co.sw.virtuoso.feature.core.ui.states.RetryErrorMessage
 import uk.co.sw.virtuoso.feature.core.ui.theme.VirtuosoTheme
 
 @Composable
@@ -36,35 +36,18 @@ fun ArtistDetailsScreen(artistId: String, viewModel: ArtistDetailsViewModel) {
 
 @Composable
 private fun ArtistError(onRetryClick: () -> Unit) {
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.SpaceEvenly,
-    ) {
-        Text(
-            text = stringResource(
-                id = uk.co.sw.virtuoso.feature.core.R.string.generic_error_message
-            ),
-            style = MaterialTheme.typography.headlineSmall,
-            color = MaterialTheme.colorScheme.onBackground,
-        )
-        Button(
-            colors = ButtonDefaults.textButtonColors(
-                containerColor = MaterialTheme.colorScheme.primary,
-                contentColor = MaterialTheme.colorScheme.onPrimary,
-            ),
-            onClick = onRetryClick,
-        ) {
-            Text(
-                text = stringResource(
-                    id = uk.co.sw.virtuoso.feature.core.R.string.retry_button_cta
-                ),
-                style = MaterialTheme.typography.bodyLarge,
-            )
-        }
-    }
+    RetryErrorMessage(
+        title = stringResource(
+            id = uk.co.sw.virtuoso.feature.core.R.string.generic_error_message
+        ),
+        actionMessage = stringResource(
+            id = uk.co.sw.virtuoso.feature.core.R.string.retry_button_cta
+        ),
+        onActionClicked = onRetryClick
+    )
 }
 
-//@Preview
+@Preview
 @Composable
 fun ErrorPreview(){
     VirtuosoTheme {
@@ -80,7 +63,7 @@ private fun ArtistLoading() {
     )
 }
 
-//@Preview
+@Preview
 @Composable
 fun LoadingPreview(){
     VirtuosoTheme {
@@ -121,7 +104,7 @@ private fun ArtistDetails(viewData: List<ArtistDetailsViewData>) {
     }
 }
 
-//@Preview
+@Preview
 @Composable
 fun DetailsPreview(){
     val viewData = listOf(

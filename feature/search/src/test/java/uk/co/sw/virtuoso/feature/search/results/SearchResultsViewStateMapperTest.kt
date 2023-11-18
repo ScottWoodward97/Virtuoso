@@ -7,6 +7,8 @@ import org.mockito.kotlin.doReturn
 import org.mockito.kotlin.mock
 import uk.co.sw.virtuoso.domain.search.model.ArtistSearchModel
 import uk.co.sw.virtuoso.domain.search.model.SearchResultModel
+import uk.co.sw.virtuoso.feature.search.results.viewstate.SearchResultsViewState
+import uk.co.sw.virtuoso.feature.search.results.viewstate.SearchResultsViewStateMapper
 
 class SearchResultsViewStateMapperTest {
 

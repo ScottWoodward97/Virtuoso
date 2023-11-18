@@ -22,6 +22,11 @@ android {
 
     buildFeatures {
         viewBinding true
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = '1.4.1'
     }
 
     buildTypes {
@@ -54,10 +59,18 @@ dependencies {
     implementation fragment
     implementation navigation.values()
 
+    implementation platform(composeBOM)
+    implementation compose.values()
+
+    debugImplementation composeDebug.values()
+
     implementation hilt
     kapt hiltCompiler
 
     testImplementation unitTest.values()
-    testImplementation coroutineTest
+    testImplementation(coroutineTest) {
+        exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib'
+        exclude group: 'org.jetbrains.kotlin', module: 'kotlinx-coroutines-core'
+    }
     testImplementation turbine
 }
