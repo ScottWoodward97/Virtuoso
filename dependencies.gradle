@@ -5,7 +5,7 @@ ext {
     def materialVersion = '1.8.0'
     def constraintLayoutVersion = '2.1.4'
     def coroutineVersion = '1.6.4'
-    def navigationVersion = '2.3.5'
+    def navigationVersion = '2.7.5'
     def recyclerViewVersion = '1.2.1'
     def fragmentVersion = '1.5.5'
     def lifecycleVersion = '2.5.1'
@@ -35,6 +35,7 @@ ext {
 
     hilt = "com.google.dagger:hilt-android:$hiltVersion"
     hiltCompiler = "com.google.dagger:hilt-compiler:$hiltVersion"
+    hiltCompose = "androidx.hilt:hilt-navigation-compose:1.0.0"
 
     coroutineCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion"
     coroutineExtensions = [
@@ -45,6 +46,7 @@ ext {
 
     compose = [
             compose: "androidx.compose.ui:ui",
+            composeActivity: "androidx.activity:activity-compose",
             composePreview: "androidx.compose.ui:ui-tooling-preview",
             composeMaterial: "androidx.compose.material3:material3",
             accompanistSystemUI: "com.google.accompanist:accompanist-systemuicontroller:$accompanistSystemUIVersion"
@@ -57,10 +59,12 @@ ext {
     navigation = [
             fragment: "androidx.navigation:navigation-fragment-ktx:$navigationVersion",
             ui      : "androidx.navigation:navigation-ui-ktx:$navigationVersion",
+            compose : "androidx.navigation:navigation-compose:$navigationVersion",
     ]
 
     lifecycleExtensions = [
             viewModel: "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion",
+            viewModelCompose: "androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycleVersion",
             runtime  : "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion",
     ]
 
