@@ -10,12 +10,12 @@ apply from: "../dependencies.gradle"
 
 android {
     namespace 'uk.co.sw.virtuoso'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "uk.co.sw.virtuoso"
         minSdk 24
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -24,6 +24,11 @@ android {
 
     buildFeatures {
         viewBinding true
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = '1.4.1'
     }
 
     buildTypes {
@@ -59,13 +64,17 @@ dependencies {
     implementation coreKtx
     implementation appCompat
     implementation material
-    implementation constraintLayout
 
-    implementation fragment
     implementation navigation.values()
 
     implementation hilt
+    implementation hiltCompose
     kapt hiltCompiler
+
+    implementation platform(composeBOM)
+    implementation compose.values()
+
+    debugImplementation composeDebug.values()
 
     testImplementation unitTest.values()
     testImplementation coroutineTest

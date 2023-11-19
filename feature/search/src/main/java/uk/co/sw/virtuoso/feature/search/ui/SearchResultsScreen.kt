@@ -25,8 +25,8 @@ import uk.co.sw.virtuoso.feature.search.results.viewstate.SearchResultsViewState
 
 @Composable
 fun SearchResultsScreen(
-    viewModel: SearchViewModel,
     onResultClicked: (String) -> Unit,
+    viewModel: SearchViewModel,
 ) {
 
     val viewState = viewModel.searchResultsViewState.collectAsState()

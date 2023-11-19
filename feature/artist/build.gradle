@@ -10,11 +10,11 @@ apply from: "../../dependencies.gradle"
 
 android {
     namespace 'uk.co.sw.virtuoso.feature.artist'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         minSdk 24
-        targetSdk 33
+        targetSdk 34
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -54,10 +54,10 @@ dependencies {
     implementation coreKtx
     implementation appCompat
     implementation material
-    implementation constraintLayout
 
-    implementation fragment
     implementation navigation.values()
+
+    implementation lifecycleExtensions.values()
 
     implementation platform(composeBOM)
     implementation compose.values()

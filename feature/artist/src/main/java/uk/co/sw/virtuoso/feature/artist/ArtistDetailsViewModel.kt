@@ -1,5 +1,6 @@
 package uk.co.sw.virtuoso.feature.artist
 
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -15,6 +16,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ArtistDetailsViewModel @Inject constructor(
+    savedStateHandle: SavedStateHandle,
     private val findArtistUseCase: FindArtistUseCase,
     private val getArtistFlowUseCase: GetArtistFlowUseCase,
     private val artistDetailsViewStateMapper: ArtistDetailsViewStateMapper,
@@ -24,6 +26,8 @@ class ArtistDetailsViewModel @Inject constructor(
     private val _artistDetailsViewState: MutableStateFlow<ArtistDetailsViewState> =
         MutableStateFlow(ArtistDetailsViewState.Loading)
     val artistDetailsViewState: StateFlow<ArtistDetailsViewState> = _artistDetailsViewState
+
+    private val artistID: String = savedStateHandle["artistID"] ?: ""
 
     init {
         viewModelScope.launch(coroutineDispatchers.io()) {
@@ -35,10 +39,10 @@ class ArtistDetailsViewModel @Inject constructor(
         }
     }
 
-    fun findArtist(id: String) {
+    fun findArtist() {
         viewModelScope.launch(coroutineDispatchers.io()) {
             _artistDetailsViewState.emit(ArtistDetailsViewState.Loading)
-            findArtistUseCase(id)
+            findArtistUseCase(artistID)
         }
     }
 
