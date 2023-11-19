@@ -6,6 +6,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -18,9 +19,13 @@ import uk.co.sw.virtuoso.feature.core.ui.states.RetryErrorMessage
 import uk.co.sw.virtuoso.feature.core.ui.theme.VirtuosoTheme
 
 @Composable
-fun ArtistDetailsScreen(artistId: String, viewModel: ArtistDetailsViewModel) {
+fun ArtistDetailsScreen(
+    viewModel: ArtistDetailsViewModel
+) {
 
     val viewState = viewModel.artistDetailsViewState.collectAsState()
+
+    LaunchedEffect(Unit) { viewModel.findArtist() }
 
     Surface(
         modifier = Modifier.fillMaxSize(),
@@ -28,7 +33,7 @@ fun ArtistDetailsScreen(artistId: String, viewModel: ArtistDetailsViewModel) {
     ) {
         when (val state = viewState.value) {
             is ArtistDetailsViewState.ArtistDetails -> ArtistDetails(state.viewData)
-            ArtistDetailsViewState.Error -> ArtistError { viewModel.findArtist(artistId) }
+            ArtistDetailsViewState.Error -> ArtistError { viewModel.findArtist() }
             ArtistDetailsViewState.Loading -> ArtistLoading()
         }
     }
@@ -49,7 +54,7 @@ private fun ArtistError(onRetryClick: () -> Unit) {
 
 @Preview
 @Composable
-fun ErrorPreview(){
+fun ErrorPreview() {
     VirtuosoTheme {
         ArtistError {}
     }
@@ -65,7 +70,7 @@ private fun ArtistLoading() {
 
 @Preview
 @Composable
-fun LoadingPreview(){
+fun LoadingPreview() {
     VirtuosoTheme {
         Surface(
             modifier = Modifier.fillMaxSize(),
@@ -82,8 +87,8 @@ private fun ArtistDetails(viewData: List<ArtistDetailsViewData>) {
         modifier = Modifier
             .background(color = MaterialTheme.colorScheme.background)
             .padding(horizontal = 8.dp, vertical = 0.dp)
-    ){
-        items(viewData){
+    ) {
+        items(viewData) {
             when (it) {
                 is ArtistDetailsViewData.ArtistInfoViewData ->
                     ArtistInfo(
@@ -106,7 +111,7 @@ private fun ArtistDetails(viewData: List<ArtistDetailsViewData>) {
 
 @Preview
 @Composable
-fun DetailsPreview(){
+fun DetailsPreview() {
     val viewData = listOf(
         ArtistDetailsViewData.ArtistInfoViewData("Name", "Type", "Duration"),
         ArtistDetailsViewData.HeadingSeparatorViewData("Releases"),
@@ -118,7 +123,7 @@ fun DetailsPreview(){
         Surface(
             modifier = Modifier.fillMaxSize(),
             color = MaterialTheme.colorScheme.background
-        ){
+        ) {
             ArtistDetails(viewData = viewData)
         }
     }
