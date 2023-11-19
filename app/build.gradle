@@ -64,9 +64,7 @@ dependencies {
     implementation coreKtx
     implementation appCompat
     implementation material
-    implementation constraintLayout
 
-    implementation fragment
     implementation navigation.values()
 
     implementation hilt
